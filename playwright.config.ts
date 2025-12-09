@@ -9,7 +9,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
-    headless: false,
+    headless: process.env.CI ? true : false,
     actionTimeout: 0,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
